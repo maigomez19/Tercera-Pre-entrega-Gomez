@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import inicio, login, registro, detalle, perfil
+from App_Final.views import curso
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +26,5 @@ urlpatterns = [
     path('registro/', registro),
     path('detalle/<id_producto>', detalle),
     path('perfil/<id_usuario>', perfil),
+    path('pruebaInsertar/<nombre>/<numero>', curso)
 ]
