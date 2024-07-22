@@ -11,7 +11,7 @@ def curso(request, nombre, numero):
 def inicio(request):
     productos = {"cosmeticos": ["Base", "Corrector", "Rubor", "Labial"]}
 
-    plantilla = loader.get_template('App_Final/inicio.html')
+    plantilla = loader.get_template('App_Final/index.html')
 
     documento = plantilla.render(productos)
 

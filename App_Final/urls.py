@@ -18,10 +18,10 @@ from django.urls import path
 from App_Final import views
 
 urlpatterns = [
-    path('', views.inicio),
-    path('login/', views.login),
-    path('registro/', views.registro),
-    path('detalle/<id_producto>', views.detalle),
-    path('perfil/<id_usuario>', views.perfil),
-    path('pruebaInsertar/<nombre>/<numero>', views.curso)
+    path('', views.inicio, name='Inicio'),
+    path('login/', views.login, name='Login'),
+    path('registro/', views.registro, name='Registro'),
+    path('detalle/<id_producto>', views.detalle, name='Detalle'),
+    path('perfil/<id_usuario>', views.perfil, name='Perfil'),
+    path('pruebaInsertar/<nombre>/<numero>', views.curso, name='Agregar')
 ]
