@@ -1,12 +1,12 @@
-from App_Final.models import Curso
+# from App_Final.models import Curso
 from django.http import HttpResponse
 from django.template import loader
 
-def curso(request, nombre, numero):
-    curso = Curso(nombre=nombre, camada=int(numero))
-    curso.save()
-    documento = f"Curso: {curso.nombre}<br>Camada: {curso.camada}"
-    return HttpResponse(documento)
+# def curso(request, nombre, numero):
+#     curso = Curso(nombre=nombre, camada=int(numero))
+#     curso.save()
+#     documento = f"Curso: {curso.nombre}<br>Camada: {curso.camada}"
+#     return HttpResponse(documento)
 
 def inicio(request):
     productos = {"cosmeticos": ["Base", "Corrector", "Rubor", "Labial"]}
@@ -31,6 +31,20 @@ def registro(request):
 
     return HttpResponse(documento)
 
+def perfil(request, id_usuario):
+    plantilla = loader.get_template('App_Final/perfil.html')
+
+    documento = plantilla.render()
+
+    return HttpResponse(documento)
+
+def productos(request):
+    plantilla = loader.get_template('App_Final/productos.html')
+
+    documento = plantilla.render()
+
+    return HttpResponse(documento)
+
 def detalle(request, id_producto):
     plantilla = loader.get_template('App_Final/detalle.html')
 
@@ -38,8 +52,15 @@ def detalle(request, id_producto):
 
     return HttpResponse(documento)
 
-def perfil(request, id_usuario):
-    plantilla = loader.get_template('App_Final/perfil.html')
+def articulos(request):
+    plantilla = loader.get_template('App_Final/articulos.html')
+
+    documento = plantilla.render()
+
+    return HttpResponse(documento)
+
+def ver_mas(request, id_producto):
+    plantilla = loader.get_template('App_Final/ver_mas.html')
 
     documento = plantilla.render()
 

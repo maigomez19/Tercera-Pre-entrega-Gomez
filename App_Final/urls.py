@@ -19,9 +19,18 @@ from App_Final import views
 
 urlpatterns = [
     path('', views.inicio, name='Inicio'),
+    # Usuario
     path('login/', views.login, name='Login'),
     path('registro/', views.registro, name='Registro'),
-    path('detalle/<id_producto>', views.detalle, name='Detalle'),
     path('perfil/<id_usuario>', views.perfil, name='Perfil'),
-    path('pruebaInsertar/<nombre>/<numero>', views.curso, name='Agregar')
+
+    # Producto
+    path('productos/', views.productos, name='Productos'),
+    path('productos/<id_producto>', views.detalle, name='Detalle Producto'),
+
+    # Articulos
+    path('articulos/', views.articulos, name='Articulos'),
+    path('articulos/<id_articulos>', views.ver_mas, name='Detalle Articulo'),
+
+    # path('pruebaInsertar/<nombre>/<numero>', views.curso, name='Agregar')
 ]

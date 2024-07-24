@@ -12,38 +12,35 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Curso',
+            name='Producto',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('nombre', models.CharField(max_length=40)),
-                ('camada', models.IntegerField()),
+                ('detalle', models.TextField()),
+                ('precio', models.DecimalField(max_digits=6,decimal_places=2)),
+                ('seccion_rostro', models.CharField(max_length=40)),
             ],
         ),
         migrations.CreateModel(
-            name='Entregable',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nombre', models.CharField(max_length=30)),
-                ('fecha_de_entrega', models.DateField()),
-                ('entregado', models.BooleanField()),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Estudiante',
+            name='Usuario',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('nombre', models.CharField(max_length=40)),
-                ('apellido', models.CharField(max_length=20)),
-                ('email', models.EmailField(max_length=40)),
+                ('apellido', models.CharField(max_length=40)),
+                ('email', models.EmailField()),
+                ('clave', models.CharField(max_length=20)),
+                ('rol', models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
-            name='Profesor',
+            name='Articulo',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nombre', models.CharField(max_length=40)),
-                ('email', models.EmailField(max_length=40)),
-                ('apellido', models.CharField(max_length=30)),
+                ('titulo', models.CharField(max_length=40)),
+                ('detalle', models.TextField()),
+                ('fecha', models.DateField(auto_now_add=True)),
+                ('autor', models.CharField(max_length=40)),
+                ('clasificacion', models.CharField(max_length=40)),
             ],
-        ),
+        )
     ]

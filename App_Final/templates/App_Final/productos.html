@@ -1,0 +1,42 @@
+{% extends 'App_Final/layouts/base.html' %}
+{% load static %}
+
+{% block main %}
+    <main>
+        <h1>Productos</h1>
+
+        <!-- FORM CREAR-->
+        <form action="/productos/" method="POST">
+            <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre">
+            </div>
+
+            <div>
+                <label for="detalle">Detalle</label>
+                <textarea name="detalle" id="detalle"></textarea>
+            </div>
+
+            <div>
+                <label for="precio">Precio</label>
+                <input type="number" name="precio" id="precio">
+            </div>
+
+            <div>
+                <label for="seccion_rostro">Sección Rostro</label>
+                <select type="number" name="seccion_rostro" id="seccion_rostro">
+                    <option value="rostro">Rostro completo</option>
+                    <option value="cejas">Cejas</option>
+                    <option value="parpados">Párpados</option>
+                    <option value="ojeras">Ojeras</option>
+                    <option value="pestañas">Pestañas</option>
+                    <option value="mejillas">Mejillas</option>
+                    <option value="nariz">Nariz</option>
+                    <option value="labios">Labios</option>
+                </select>
+            </div>
+
+            <input type="submit" value="Crear">
+        </form>
+    </main>
+{% endblock %}
