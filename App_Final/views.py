@@ -1,12 +1,8 @@
-# from App_Final.models import Curso
+from App_Final.models import Producto, Usuario, Articulo
 from django.http import HttpResponse
 from django.template import loader
-
-# def curso(request, nombre, numero):
-#     curso = Curso(nombre=nombre, camada=int(numero))
-#     curso.save()
-#     documento = f"Curso: {curso.nombre}<br>Camada: {curso.camada}"
-#     return HttpResponse(documento)
+from App_Final.forms import ProductoFormulario, UsuarioFormulario, ArticuloFormulario
+from django.shortcuts import render
 
 def inicio(request):
     productos = {"cosmeticos": ["Base", "Corrector", "Rubor", "Labial"]}
@@ -39,11 +35,20 @@ def perfil(request, id_usuario):
     return HttpResponse(documento)
 
 def productos(request):
-    plantilla = loader.get_template('App_Final/productos.html')
+    if request.method == 'POST':
+        formulario = ProductoFormulario(request.POST)
+        print(formulario)
 
-    documento = plantilla.render()
+        if formulario.is_valid():
+            informacion = formulario.cleaned_data
+            producto = Producto(nombre=informacion["nombre"], detalle=informacion["detalle"], precio=informacion["precio"], seccion_rostro=informacion["seccion_rostro"])
+            producto.save()
 
-    return HttpResponse(documento)
+            return render(request, "App_Final/productos.html")
+    else:
+        formulario = ProductoFormulario()
+
+    return render(request, "App_Final/productos.html", {"formulario": formulario})
 
 def detalle(request, id_producto):
     plantilla = loader.get_template('App_Final/detalle.html')
