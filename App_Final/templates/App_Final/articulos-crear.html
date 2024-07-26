@@ -3,7 +3,7 @@
 
 {% block main %}
     <main>
-        <h1>Registro</h1>
+        <h1>Crear Artículo</h1>
 
         {% comment %} {% if formulario.errors %}
 
@@ -17,15 +17,15 @@
 
         {% endif %}
 
-        <!-- FORM REGISTRO-->
-        <form action="/registro/" method="POST">
+        <!-- FORM CREAR-->
+        <form action="" method="POST">
             {% csrf_token %}
-            
+
             <table>
                 {{ formulario.as_table }}
             </table>
 
-            <input type="submit" value="Registrarte">
+            <input type="submit" value="Crear">
         </form>
     </main>
 {% endblock %}

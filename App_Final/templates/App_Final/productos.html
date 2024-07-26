@@ -5,21 +5,25 @@
     <main>
         <h1>Productos</h1>
 
-        {% if formulario.errors %}
+        <button><a href="{% url 'Crear Producto' %}">Crear producto</a></button>
 
-            <p>ERROR</p>
+        <!-- BUSCADOR -->
+        <form action="/productos/buscar/" method="GET">
+            <input type="text" name="nombre" id="nombre">
 
+            <input type="submit" value="Buscar">
+        </form>
+
+        {% if respuesta %}
+            <p>{{ respuesta }}</p>
         {% endif %}
 
-        <!-- FORM CREAR-->
-        <form action="" method="POST">
-            {% csrf_token %}
-
-            <table>
-                {{ formulario.as_table }}
-            </table>
-
-            <input type="submit" value="Crear">
-        </form>
+        {% if productos %}
+            <ul>
+            {% for producto in productos %}
+                <li>{{ producto.nombre }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
     </main>
 {% endblock %}

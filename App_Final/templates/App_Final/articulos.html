@@ -3,23 +3,27 @@
 
 {% block main %}
     <main>
-        <h1>Articulos</h1>
+        <h1>Artículos</h1>
 
-        {% if formulario.errors %}
+        <button><a href="{% url 'Crear Articulo' %}">Crear articulo</a></button>
 
-            <p>ERROR</p>
+        <!-- BUSCADOR -->
+        <form action="/articulos/buscar/" method="GET">
+            <input type="text" name="titulo" id="titulo">
 
+            <input type="submit" value="Buscar">
+        </form>
+
+        {% if respuesta %}
+            <p>{{ respuesta }}</p>
         {% endif %}
 
-        <!-- FORM CREAR-->
-        <form action="/articulos/" method="POST">
-            {% csrf_token %}
-
-            <table>
-                {{ formulario.as_table }}
-            </table>
-
-            <input type="submit" value="Crear">
-        </form>
+        {% if articulos %}
+            <ul>
+            {% for articulo in articulos %}
+                <li>{{ articulo.titulo }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
     </main>
 {% endblock %}

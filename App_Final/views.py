@@ -38,7 +38,11 @@ def registro(request):
 
             formulario = UsuarioFormulario()
 
-            return render(request, "App_Final/registro.html", {"formulario": formulario})
+            respuesta = "¡Registro realizado con éxito!"
+
+            tipo = "success"
+
+            return render(request, "App_Final/registro.html", {"formulario": formulario, "respuesta": respuesta, "tipo": tipo})
     else:
         formulario = UsuarioFormulario()
 
@@ -51,7 +55,26 @@ def perfil(request, id_usuario):
 
     return HttpResponse(documento)
 
+def buscar_productos(request):
+    if request.GET["nombre"]:
+        nombre = request.GET["nombre"]
+        productos = Producto.objects.filter(nombre__icontains=nombre)
+
+        return render(request, "App_Final/productos.html", {"productos": productos})
+    
+    else:
+        respuesta = "Error. El campo de búsqueda no fue completado."
+
+        productos = Producto.objects.all()
+
+        return render(request, "App_Final/productos.html", {"productos": productos, "respuesta": respuesta})
+
 def productos(request):
+    productos = Producto.objects.all()
+
+    return render(request, "App_Final/productos.html", {"productos": productos})
+
+def crear_producto(request):
     if request.method == 'POST':
         formulario = ProductoFormulario(request.POST)
 
@@ -67,11 +90,15 @@ def productos(request):
 
             formulario = ProductoFormulario()
 
-            return render(request, "App_Final/productos.html", {"formulario": formulario})
+            respuesta = "¡Producto creado con éxito!"
+
+            tipo = "success"
+
+            return render(request, "App_Final/productos-crear.html", {"formulario": formulario, "respuesta": respuesta, "tipo": tipo})
     else:
         formulario = ProductoFormulario()
 
-    return render(request, "App_Final/productos.html", {"formulario": formulario})
+    return render(request, "App_Final/productos-crear.html", {"formulario": formulario})
 
 def detalle(request, id_producto):
     plantilla = loader.get_template('App_Final/detalle.html')
@@ -80,7 +107,26 @@ def detalle(request, id_producto):
 
     return HttpResponse(documento)
 
+def buscar_articulos(request):
+    if request.GET["titulo"]:
+        titulo = request.GET["titulo"]
+        articulos = Articulo.objects.filter(titulo__icontains=titulo)
+
+        return render(request, "App_Final/articulos.html", {"articulos": articulos})
+    
+    else:
+        respuesta = "Error. El campo de búsqueda no fue completado."
+
+        articulos = Articulo.objects.all()
+
+        return render(request, "App_Final/articulos.html", {"articulos": articulos, "respuesta": respuesta})
+
 def articulos(request):
+    articulos = Articulo.objects.all()
+
+    return render(request, "App_Final/articulos.html", {"articulos": articulos})
+
+def crear_articulo(request):
     if request.method == 'POST':
         formulario = ArticuloFormulario(request.POST)
 
@@ -97,12 +143,15 @@ def articulos(request):
 
             formulario = ArticuloFormulario()
 
-            return render(request, "App_Final/articulos.html", {"formulario": formulario})
+            respuesta = "¡Artículo creado con éxito!"
+
+            tipo = "success"
+
+            return render(request, "App_Final/articulos-crear.html", {"formulario": formulario, "respuesta": respuesta, "tipo": tipo})
     else:
         formulario = ArticuloFormulario()
 
-    return render(request, "App_Final/articulos.html", {"formulario": formulario})
-    
+    return render(request, "App_Final/articulos-crear.html", {"formulario": formulario})
 
 def ver_mas(request, id_producto):
     plantilla = loader.get_template('App_Final/ver_mas.html')

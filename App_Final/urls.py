@@ -26,11 +26,13 @@ urlpatterns = [
 
     # Producto
     path('productos/', views.productos, name='Productos'),
+    path('productos/buscar/', views.buscar_productos, name='Buscar Productos'),
+    path('productos/crear/', views.crear_producto, name='Crear Producto'),
     path('productos/<id_producto>', views.detalle, name='Detalle Producto'),
 
-    # Articulos
+    # Articulo
     path('articulos/', views.articulos, name='Articulos'),
+    path('articulos/buscar/', views.buscar_articulos, name='Buscar Articulos'),
+    path('articulos/crear/', views.crear_articulo, name='Crear Articulo'),
     path('articulos/<id_articulos>', views.ver_mas, name='Detalle Articulo'),
-
-    # path('pruebaInsertar/<nombre>/<numero>', views.curso, name='Agregar')
 ]
