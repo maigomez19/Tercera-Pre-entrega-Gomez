@@ -2,23 +2,27 @@
 {% load static %}
 
 {% block main %}
-    <main class="container pt-5 pb-5">
-        <h1>Productos</h1>
+    <main class="container pt-5 pb-5" id="productos">
+        <h1 id="title-productos">Productos</h1>
 
-        <button><a href="{% url 'Crear Producto' %}">Crear producto</a></button>
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between">
+            <button class="btn crear-btn mb-3 mb-md-0"><a href="{% url 'Crear Producto' %}">Crear producto</a></button>
 
-        <!-- BUSCADOR -->
-        <form action="/productos/buscar/" method="GET">
-            <input type="text" name="nombre" id="nombre">
+            <!-- BUSCADOR -->
+            <form action="/productos/buscar/" method="GET">
+                <div class="d-flex flex-row">
+                    <input class="form-control" type="text" name="nombre" id="nombre">
 
-            <input type="submit" value="Buscar">
-        </form>
+                    <input class="btn btn-buscar" type="submit" value="Buscar">
+                </div>
+            </form>
+        </div>
 
         {% if respuesta %}
-            <p>{{ respuesta }}</p>
+            <p class="container">{{ respuesta }}</p>
         {% endif %}
 
-        <section class="py-5">
+        <section class="pt-3">
             <div class="container px-5 my-5">
                 <div class="row gx-5">
                     {% if productos %}
@@ -29,11 +33,15 @@
                                     <div class="card-body p-4">
                                         <div class="badge rounded-pill mb-2 clasificacion">{{producto.seccion_rostro}}</div>
                                         <h5 class="mb-3 precio-producto">${{producto.precio}}</h5>
-                                        <p class="card-text mb-0">{{producto.nombre}}</p>
+                                        <p class="card-text mb-0 nombre-producto">{{producto.nombre}}</p>
+                                        <p class="card-text mb-0 text-truncate">{{producto.detalle}}</p>
                                     </div>
                                 </div>
                             </div>
                         {% endfor %}
+
+                    {% else %}
+                            <p class="text-center">No se han encontrado resultados.</p>
                     {% endif %}
                 </div>
             </div>
