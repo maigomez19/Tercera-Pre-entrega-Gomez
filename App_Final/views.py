@@ -6,13 +6,9 @@ from django.shortcuts import render
 from datetime import date
 
 def inicio(request):
-    productos = {"cosmeticos": ["Base", "Corrector", "Rubor", "Labial"]}
+    articulos = Articulo.objects.all()[:3]
 
-    plantilla = loader.get_template('App_Final/index.html')
-
-    documento = plantilla.render(productos)
-
-    return HttpResponse(documento)
+    return render(request, "App_Final/index.html", {"articulos": articulos})
 
 def login(request):
     plantilla = loader.get_template('App_Final/login.html')

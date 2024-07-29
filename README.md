@@ -10,8 +10,11 @@ Explora nuestro sitio web y descubre la magia de Belle Kosmetics. ¡Déjanos ser
 - **Registro**: Página que contiene un formulario que permite crear un nuevo usuario.  
 
 ## Próximamente
-- Vista Login y la posibilidad de iniciar sesión.  
+- Vista Login y la posibilidad de iniciar sesión.
+- Carga de avatar para usuarios.
 - Vista Detalle de producto.  
 - Vista Detalle de artículo.
+- Carga de imagen en la creación de productos
+- Carga de imagen en la creación de artículos.
 
 **©Todos los derecho reservados. Mailen Gomez 2024.**

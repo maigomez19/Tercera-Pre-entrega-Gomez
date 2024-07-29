@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Modern Business - Start Bootstrap Template</title>
+        <title>Belle Kosmetics</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'App_Final/assets/favicon.ico' %}" />
         <!-- Bootstrap icons-->
@@ -16,6 +16,8 @@
         <link href="{% static 'App_Final/css/estilos.css' %}" rel="stylesheet" />
         <!-- Adobe Fonts -->
         <link rel="stylesheet" href="https://use.typekit.net/qdv2law.css">
+        <!-- Google Fonts Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </head>
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
@@ -82,7 +84,13 @@
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                     <div class="col-auto mb-3 mb-md-0">
-                        <img src="{% static 'App_Final/assets/imgs/flor-b.png' %}" alt="logo" width="35">
+                        <div class="container d-flex flex-row align-items-center">
+                            <img src="{% static 'App_Final/assets/imgs/flor-b.png' %}" alt="logo" width="35">
+    
+                            <div>
+                                <a id="titulo-navbar-footer" href="{% url 'Inicio' %}">Belle Kosmetics</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-auto">
                         <div class="small m-0 text-white">&copy; Todos los derecho reservados. Mailen Gomez 2024.</div>

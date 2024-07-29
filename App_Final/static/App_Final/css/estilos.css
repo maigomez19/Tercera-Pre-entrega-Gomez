@@ -1,3 +1,4 @@
+/*NAVBAR*/
 #titulo-navbar {
     font-family: "bodoni-urw", serif;
     font-weight: 400;
@@ -9,8 +10,10 @@
     margin-left: .4em;
 }
 
-#header-bk {
-    background-color: #c74551;
+/*HEADER*/
+#header-bk, .clasificacion {
+    background-color: #c74551 !important;
+    text-transform: capitalize !important;
 }
 
 #btn1-header {
@@ -23,8 +26,38 @@
     transition: all .5s ease-in-out !important;
 }
 
-#btn2-header:hover {
+#btn2-header:hover, .btn-call-to-action:hover {
     transition: all .5s ease-in-out !important;
-    background: #fa9598 !important;
+    background: #f07f83 !important;
     color: white !important;
+}
+
+/*INDEX*/
+.icono-index {
+    background-color: #f07f83;
+}
+
+.separador {
+    color: #c74551 !important;
+}
+
+.call-to-action {
+    background-color: #c74551;
+}
+
+/*FOOTER*/
+#titulo-navbar-footer {
+    font-family: "bodoni-urw", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    margin-left: .4em;
+}
+
+/*PRODUCTOS*/
+.precio-producto {
+    font-size: 2em !important;
+    font-weight: bold !important;
 }

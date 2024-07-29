@@ -3,7 +3,7 @@ from datetime import date
 
 class ProductoFormulario(forms.Form):
     listado_secciones_rostro = [
-        ("rostro", "Rostro completo"),
+        ("rostro completo", "Rostro completo"),
         ("frente", "Frente"),
         ("cejas", "Cejas"),
         ("pestañas", "Pestañas"),
@@ -26,18 +26,18 @@ class ProductoFormulario(forms.Form):
     )
     detalle = forms.CharField(
         widget=forms.Textarea,
-        max_length=200,
+        max_length=280,
         error_messages={
             "required": "El campo detalle es obligatorio.",
             "max_length": "Recuerda que el campo tiene un máximo de 200 caracteres.",
         }
     )
     precio = forms.DecimalField(
-        max_digits=6,
+        max_digits=8,
         decimal_places=2,
         error_messages={
             "required": "El campo precio es obligatorio.",
-            "max_digits": "Recuerda que el campo tiene un máximo de 6 dígitos.",
+            "max_digits": "Recuerda que el campo tiene un máximo de 8 dígitos.",
         }
     )
     seccion_rostro = forms.ChoiceField(choices=listado_secciones_rostro)
