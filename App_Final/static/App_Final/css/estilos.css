@@ -1,0 +1,30 @@
+#titulo-navbar {
+    font-family: "bodoni-urw", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+.div-brand {
+    margin-left: .4em;
+}
+
+#header-bk {
+    background-color: #c74551;
+}
+
+#btn1-header {
+    background: #f07f83 !important;
+    color: white !important;
+}
+
+#btn1-header:hover {
+    background: #fa9598 !important;
+    transition: all .5s ease-in-out !important;
+}
+
+#btn2-header:hover {
+    transition: all .5s ease-in-out !important;
+    background: #fa9598 !important;
+    color: white !important;
+}
